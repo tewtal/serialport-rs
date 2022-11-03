@@ -247,8 +247,8 @@ impl SerialPort for COMPort {
             // return as soon as bytes become available (like POSIX would) and
             // block up to given duration otherwise
             // https://docs.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-commtimeouts#remarks
-            ReadIntervalTimeout: 1,
-            ReadTotalTimeoutMultiplier: 0,
+            ReadIntervalTimeout: MAXDWORD,
+            ReadTotalTimeoutMultiplier: MAXDWORD,
             ReadTotalTimeoutConstant: milliseconds as DWORD,
             // block without timeout until write is complete
             // MAXDWORD is *not* a reserved WriteTotalTimeoutMultiplier
