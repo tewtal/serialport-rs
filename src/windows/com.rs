@@ -243,7 +243,7 @@ impl SerialPort for COMPort {
         let milliseconds = timeout.as_secs() * 1000 + timeout.subsec_nanos() as u64 / 1_000_000;
 
         
-        let timeouts = COMMTIMEOUTS {
+        let mut timeouts = COMMTIMEOUTS {
             // return as soon as bytes become available (like POSIX would) and
             // block up to given duration otherwise
             // https://docs.microsoft.com/en-us/windows/win32/api/winbase/ns-winbase-commtimeouts#remarks
